@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cm to Inch Converter </title>
+
+  <style> /* CSS comment */
+    body { max-width: 800px; }
+    #inp { width: 50px }
+    #out {
+        font-size: 18px;
+        background: blue;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+  </style>
+</head>
+
+<body>   
+
+<h2 id=title></h2>
+Cm 
+<input type=number id="cm" value=0 oninput="inch.value = (cm.value/2.54).toFixed(4)">
+&emsp;
+Inch
+<input type=number id="inch" value=0 oninput="cm.value = (inch.value*2.54).toFixed(4)">
+&emsp;
+
+
+
+
+
+<script>
+"use strict";
+title.innerText = document.title;
+   
+</script>
+
+</body>
+</html>
