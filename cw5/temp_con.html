@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    
+    <title>Temperature Conversion </title>
+
+  <style> 
+    body { max-width: 800px; }
+    #inp { width: 50px }
+    #out {
+        font-size: 18px;
+        background: rgb(22, 22, 163);
+        color: rgb(223, 103, 103);
+        text-align: center;
+        padding: 10px;
+    }
+  </style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.980.0">   <!-- HTML comment: Modify all items marked xxx -->
+
+<h2 id="title">Temperature conversion</h2>
+Fahreneit 
+<input type="number" id="fahr" value="0" oninput="celci.value = (fahr.value - 32)/1.8">
+ 
+Celcius
+<input type="number" id="celci" value="0" oninput="fahr.value = (1.8 * celci.value)+32">
+ 
+
+
+
+
+
+<script>
+"use strict";
+
+function increment() {
+    let c = Number(out.innerText)+1
+    console.log("counter = "+c);
+    out.innerText = c;
+}
+
+
+    title.innerText = document.title;
+    sample.innerText = increment.toString();
+    out.innerText = 0; increment();
+</script>
+
+
+
+</body></html>
