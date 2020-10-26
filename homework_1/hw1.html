@@ -1,0 +1,103 @@
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width">
+       
+        <title>Poisson Table </title>
+    
+      <style>
+      </style>
+    </head>
+<body>
+    <center>
+        <h2 id=" title">Poisson Table</h2>
+    <hr>
+    <h2 id="deger"> Şuanki Değerler</h2>
+    <h3 id="lamDeger"></h3>
+    <h3 id="xDeger"></h3>
+
+    <hr>
+    <h2 id="ekleme">Deger Ekleme</h2>
+    x Degeri : <input id="xvalue" type="number" value="0" onchange="CalculatewithX(value)">
+    L Degeri : <input id="xvalue" type="number" value="0" onchange="CalculatewithLam(value)">
+    <hr> 
+    <h3 id="title">Poisson Table </h3>
+    <pre id="sample"> </pre>
+    </center>
+
+   
+    </body>
+
+    <script>
+        "use strict";
+
+        const  L = [0.5, 1, 1.5, 2, 2.5, 3 , 3.5]
+        let x = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
+
+    lamDeger.innerHTML = 'L = ' + L.join(' , ')
+    xDeger.innerHTML = 'x = ' + x.join(' , ')
+
+ 
+
+function CalculatewithX(new_X){
+if (!x.includes(Number(new_X))){
+x.push(new_X)
+lamDeger.innerHTML = 'L = ' + L.join(' , ')
+xDeger.innerHTML = 'x = ' + x.join(' , ')
+}
+makeCalculationsToText(x,L);
+
+}
+function CalculatewithLam(new_L){
+if(!L.includes(Number(new_L))){
+L.push(new_L)
+lamDeger.innerHTML = 'L = ' + L.join(' , ')
+xDeger.innerHTML = 'x = ' + x.join(' , ')
+}
+makeCalculationsToText(x,L);
+
+
+}
+
+function factor(numb) {
+  if (numb < 0) 
+        return -1;
+  else if (numb == 0) 
+      return 1;
+  else {
+      return (numb * factor(numb - 1));
+  }
+}
+
+function poisson(x,l){
+return Math.exp(-l) * (Math.pow(l,x) / factor(x))
+}
+function makeCalculationsToText(a,b){
+    let m = a.length
+    let n = b.length
+
+    let row = "        ";
+    for (let j = 0; j < n; j++) 
+        row += 'λ = '+ b[j]+"  ";
+    let text = row + '<hr/>'
+
+    for (let i = 0; i < m; i++) {
+       row = 'x = '+i + '   ' ;
+       for (let j = 0; j < n; j++) {
+          row += poisson(x[i],L[j]).toFixed(4)+"  " ;
+       }
+       text += "<br>"+row+"</br>";
+    }
+
+
+
+    sample.innerHTML = text ;
+}
+
+makeCalculationsToText(x,L);
+    </script>
+
+</html>
