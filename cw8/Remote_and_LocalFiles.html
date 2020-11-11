@@ -27,26 +27,19 @@
 "use strict";
 function fileSelect() {
     fetch(remote.value).then(r => r.blob())
-    .then(checkFiles) //called with Blob b 
+    .then(checkFiles) 
     }   
     
-function compare(files){
-console.log("compare")
-for (let file of files){
- let RDR = new FileReader();
- RDR.onloadend = function() { saveData2(RDR.result) };
-	RDR.readAsText(file)
-}
-}
-
-
 function checkFiles(b) {
-    let a = [...local.files]
-   for (let i=0; i<a.length; i++)
-   { 
-   }
-    out.innerText += "Remote File https://avatars1.githubusercontent.com/u/14038292 \n"
-    out.innerText += 'Choose files '+ a.length
+    let a = [...local.files] 
+    out.innerText = a.map(f => f.name+' '+f.type).join('\n')
+    let m1 = a.length+' items checked, '
+    let m2 = 'all files are different'
+    for (let f of a) //each local file
+        if (f.size==b.size && f.type==b.type) {
+            m2 = f.name+' is the same'; break
+    }
+    out.innerText += '\n\n'+m1+m2
 }
 const L = console.log
 docName.innerText = document.title
