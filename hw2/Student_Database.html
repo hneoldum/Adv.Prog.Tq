@@ -109,53 +109,12 @@ getExamSchedule(id){
      return student.name+"\n"+student.list;
      
 
-     /*let student = this.students.get(id);
-     let course_names = student.list;
-     let courses = [];
-     for (let course_name of course_names) {
-        courses.push(this.courses.get(name));
-     }
-     return courses;*/
+   
   }
-/* let examRoom = eRoomInput.value;
-        addCoursesTableHead("tbl");
-        for (let course of data.courses.values()) {
-            for (let room of course.rooms) {
-                if (examRoom == room) {
-                    addTableGiverCourse(course, "tbl");
-                }
-            }
-        }*/
 
- // getCoursesForRoom(exam_room) {
 
-      /*  let AllCourses = crsMap;
-        console.log(crsMap);
-        console.log(stdMap);
-      let examRoom=rid.value;
-      console.log(AllCourses);
-      for(let course of AllCourses){
-            for (let room of crsMap){
-                console.log(room);
-                if(examRoom==room){
-                    
-                    return course;
-                }
-            }
-
-      }*/
   
-  //  console.log(AllCourses);
-   // let coursesOfExam = [];
-  //  for (const course of AllCourses) {
-      //  if(course.list.includes(exam_room)){
-        //  coursesOfExam.push(course.name);
-          //console.log(AllCourses);
 
-        //}
-  //  }
-    //return coursesOfExam;
-  //}
 
   getStudentListCourse(course_name){
       //BURASI ÇALIŞIYOR
@@ -253,7 +212,7 @@ function findMin(){
 }
 
 
-//timing denemeleri
+
 function searchArray() {
     let t=Date.now()
     let id = Math.floor(Math.random() * 10000);
@@ -293,28 +252,7 @@ function timing(f) {
 
 }
 
-// timing sonu
 
-/*function showStudent(id) {
-    let std = stdMap.get(id);
-    if (!std) return report(id+" not found");
-    let t = std.toString()
-    report(t, "("+std.list.length+" courses)", std.list);
-    return std
-
-
-    function showCourse(id) {
-    id = id.toUpperCase();
-    let a = [];
-    for (let std of stdMap.values()) 
-        if (std.list.includes(id)) 
-            a.push(std.id+" "+std.name);
-    if (a.length > 0)
-        report(id+": ", a.length+" students", a);
-    else report("No students in "+id);
-    return a
-}
-}*/
 
 function getCoursesForRoom(exam_room)
 {
