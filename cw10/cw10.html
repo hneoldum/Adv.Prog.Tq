@@ -90,11 +90,11 @@ class Crypto extends Menu {
     .then(b => display(MENU.bufferToHex(b)))
   } 
   shaFromFile(f) { //File or Blob
-    //use f.arrayBuffer()
+    f.arrayBuffer().then(MENU.shaFromBuffer)
     return "implement this"
   }
   shaFromURL(u) { //URL or string
-    //use fetch(u).then ...
+   fetch(u).then(resp=> resp.arrayBuffer()).then(MENU.shaFromBuffer)
     return "implement this"
   }
   shaFromString(txt) {
