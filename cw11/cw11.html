@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <title>Event Listeners </title>
+
+  <style> /* CSS comment */
+    body { max-width: 440px; }
+    #url { width: 190px; }
+    span, #url { color: blue; }
+  </style>
+</head>
+
+<body>   <!-- HTML comment: Modify all items marked xxx -->
+
+<h2 id=title title="Modify xxx"></h2>
+<p title="navigator.platform">
+  Platform: <span id=plat>??</span>
+
+</p>
+
+<p id=blevel title="Battery level">
+  Battery level: <span id=level>??</span>
+</p>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample>This text is not shown. Why?</pre>
+
+<hr />
+
+<script>
+"use strict";
+
+
+function init() { 
+
+    blevel.onclick=console.log("battery level")
+    plat.innerText = navigator.platform
+    navigator.geolocation.getCurrentPosition(p => 
+      loc.innerText = p.coords.latitude.toFixed(4)
+                +', '+p.coords.longitude.toFixed(4)
+    )
+    navigator.getBattery().then(b => 
+      level.innerText = 100*b.level+'%  '+b.charging+" "+b.onlevelchange
+    ) 
+   
+   
+}
+    title.innerText = document.title;
+    sample.innerText = init+'\n';
+    init();
+</script>
+
+</body>
+</html>
