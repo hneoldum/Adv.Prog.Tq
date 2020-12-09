@@ -1,8 +1,8 @@
-class Color_Eyler extends Animator  {
+class Ball_Hande extends Animator  {
     constructor() {
         super();
-        this.author = 'M A Eyler'
-        this.desc = 'Smooth color change'
+        this.author = 'Hande Neoldum'
+        this.desc = 'Bouncing Ball'
         let y0= "translateY(0)", y1= "translateY(100px)" ,y2= "translateY(200px)" ,y3= "translateY(300px)" ,y4= "translateY(400px)" ;
         let x0 = "translate(0)", x1 = "translate(300px)", x2="translate(100px)"
         let z0="translate(100px)"+"translateY(200px)"
