@@ -50,9 +50,9 @@
 </div>
 <hr>
 <p>   lat:
-    <input type="number"  onchange="askWeather()" id="latitude" value=40>
+    <input type="number"  onchange="askWeather()" id="lati" value=40>
       long:
-    <input type="number"  onchange="askWeather()" id="longitude" value=30>
+    <input type="number"  onchange="askWeather()" id="longi" value=30>
     </p>
 <div>
 <p id="err" style="display: none;">You need an API key for openweathermap.org 
@@ -110,8 +110,8 @@ var accessKey;
 async function askWeather() {
  
             const U = "https://api.openweathermap.org/data/2.5/weather?"
-            let url = U + "lat=" + document.getElementById("latitude").value +
-                "&lon=" + document.getElementById("longitude").value +
+            let url = U + "lat=" + document.getElementById("lati").value +
+                "&lon=" + document.getElementById("longi").value +
                 "&APPID=" + accessKey;
             hava.innerText = "getting weather"
             detay.innerText = ''
