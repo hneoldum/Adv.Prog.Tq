@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://blm-fsmvu.github.io/305/work/Weather.html -->
+
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta name="viewport" content="width=device-width">
@@ -50,9 +50,9 @@
 </div>
 <hr>
 <p>   lat:
-    <input type="number"  onchange="askWeather()" id="x" value=40>
+    <input type="number"  onchange="askWeather()" id="latitude" value=40>
       long:
-    <input type="number"  onchange="askWeather()" id="y" value=30>
+    <input type="number"  onchange="askWeather()" id="longitude" value=30>
     </p>
 <div>
 <p id="err" style="display: none;">You need an API key for openweathermap.org 
@@ -108,27 +108,18 @@ function getLocation1(p) { //Accurate
 // Weather
 var accessKey;
 async function askWeather() {
-    //let loc = doc.getelementbyId("x").innerHml
-    console.log(lat, lon); 
-    const U = "https://api.openweathermap.org/data/2.5/weather?"
-    let url = U+"lat="+lat+"&lon="+lon+"&APPID="+accessKey;
-    hava.innerText = "getting weather"
-    detay.innerText = ''
-    gunes.innerText = ''
-    /* replace this code by fetch()
-    let xhttp = new XMLHttpRequest()
-    xhttp.responseType = "text"
-    xhttp.onreadystatechange = () => {
-       if (xhttp.readyState == 4 && xhttp.status == 200) 
-          showWeather(JSON.parse(xhttp.responseText))
-       else hava.innerText = "XX"
-    }
-    xhttp.open("GET", url, true); xhttp.send()
-    */
-   let data = await toJSON(url)
-//  fetch(url).then(r => r.json()).then(showWeather)
-// }
-// function showWeather(data) {
+ 
+            const U = "https://api.openweathermap.org/data/2.5/weather?"
+            let url = U + "lat=" + document.getElementById("latitude").value +
+                "&lon=" + document.getElementById("longitude").value +
+                "&APPID=" + accessKey;
+            hava.innerText = "getting weather"
+            detay.innerText = ''
+            gunes.innerText = ''
+            let data = await toJSON(url)
+            showWeather(data)
+}
+ function showWeather(data) {
     let w = data.weather[0]; showIcon(w.icon)
     let celsius = convert(data.main.temp).toFixed(0)
     let hh = w.main+"  "+celsius+"°", {sys} = data
