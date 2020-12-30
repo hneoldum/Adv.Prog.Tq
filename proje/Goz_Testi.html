@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://blm-fsmvu.github.io/305/images/icon192.png">
     <title>Göz Testi</title>
     
 </head>
 <body>
-    <div id ="startEkran" style="visibility: visible;">
+    <div id ="startEkran" style="visibility: visible; font-size: 17px; position: relative;">
         <h1>Teste başlamadan önce</h1>
   <p>Bu test kesinlikle bir göz doktoru tarafından yapılan bir muayenenin yerine geçemez.</p>
-  <button onclick="que_screen()">Teste Başla</button>
+  <button id="testebasla" style="font-size: 20px; background-color:darksalmon; border: 0; padding: 30px 17px;" onclick="que_screen()">Teste Başla</button>
     </div>
 
     <div id = "gozTest" style="visibility: hidden;">
         
     </div>
+    <img id="microphone"
+    src="mic.png"
+    alt="Microphone"   height="100" width="100" style="visibility: hidden;" >
+
 
     <div id ="resimEkran" style="visibility: hidden;"></div>
-     
-    <div id ="digerGoz" style="visibility: hidden;">
+    <div id ="digerGoz" style="visibility: hidden; font-size: 35px;">
         <p>Diğer göze geçin</p>
     </div>
-    
+    <div id ="bitisEkran" style="visibility: hidden;  font-size: 35px;">
+        <p>Göz Testi sonuçlarınız.</p>
+        <p id="demo"> </p>
+       <button id= tekrar style= "font-size: 20px; background-color:darksalmon; border: 0; padding: 30px 17px;"onclick="tekrar_basla()">Tekrar Başla</button>  
+    </div>
+
 </body>
 </html>
 
-<script src ="proje.js"></script>
+<script src ="jsbackup.js"></script>
