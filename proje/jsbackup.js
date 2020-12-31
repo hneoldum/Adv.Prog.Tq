@@ -72,6 +72,10 @@ function create_button(isim, distance, top) {
 
 
 function start_recognition() {
+
+
+
+
     recognition.onstart = function () {
         console.log("listening, please speak...");
         document.getElementById("microphone").style.visibility = "visible";
@@ -90,7 +94,19 @@ function start_recognition() {
         console.log("Transcript =", transcript);
         instance_control();
     };
-    recognition.start();
+
+    
+    try {
+        recognition.start();
+       
+    }
+    catch(err) {
+      console.log("dinleme hatası");
+      recognition.stop();
+      document.getElementById("microphone").style.visibility = "hidden";
+      alert("Dinleme bitmeden mikrofona basmayınız.");
+    }
+    
 }
 
 
@@ -127,16 +143,10 @@ function instance_control() {
         sonuc.push(20);
         document.getElementById('gozTest').innerHTML = "";
         document.getElementById('resimEkran').innerHTML = "";
-        console.log("RESİM BOYUT ="+resimBoyut);
+      //  console.log("RESİM BOYUT ="+resimBoyut);
         create_all_buttons();
 
         count++;
-      /*  console.log("count =", count);
-        console.log("transcript 0 ", transcript[0]);
-        console.log(sonuc);
-        console.log(solsonuc);*/
-        //  resimBoyut = resimBoyut / 1.5;
-
 
     }
     
@@ -170,7 +180,7 @@ function reply_click(clicked_id) {
 
 
 }
-console.log(clicked_button, result_letter)
+//console.log(clicked_button, result_letter)
 
 
 function create_buttons() {
@@ -223,8 +233,8 @@ function hesaplama() {
         solsonuc = newArray2.reduce(function (a, b) {
             return a + b;
         }, 0);
-        console.log("sag array" + sagsonuc);
-        console.log("sol array" + solsonuc);
+       // console.log("sag array" + sagsonuc);
+       // console.log("sol array" + solsonuc);
         document.getElementById("demo").innerHTML = " SONUÇ:  ";
         document.getElementById("demo").innerHTML= "sağ %" + sagsonuc+" "+"sol %" + solsonuc;
     }
@@ -271,9 +281,9 @@ function create_all_buttons() {
 
     shuffle(ikililer);
     getResultLetter(ikililer[1].distance, ikililer[0].top);
-    console.log("result position", ikililer[0].distance, ikililer[0].top);
+  //  console.log("result position", ikililer[0].distance, ikililer[0].top);
     for (i = 1; i < 4; i++) {
-        console.log(ikililer[i].distance, ikililer[i].top);
+     //   console.log(ikililer[i].distance, ikililer[i].top);
         create_button(getRandomLetter(), ikililer[i].distance, ikililer[i].top);
     
     }
